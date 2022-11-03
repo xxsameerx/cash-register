@@ -1,48 +1,51 @@
 const billAmount = document.querySelector("#bill-amount");
 const cashGiven = document.querySelector("#cash-given");
-const checkButton = document.querySelector("#check-button");
-const message = document.querySelector("#error-message");
-const noOfNotes = document.querySelectorAll(".no-of-notes");
+const checkBtn = document.querySelector("#check-btn");
+const errorMessage = document.querySelector("#error-msg");
+const displayNoOfNotes = document.querySelectorAll(".no-of-notes");
+const notesTable = document.querySelector(".notes-table");
+const cashGivenLabel = document.querySelector("#cash-given-label");
 
-const availableNotes = [2000, 500, 100, 20, 10, 5, 1];
+const notes = [2000, 500, 100, 20, 10, 5, 1];
 
-checkButton.addEventListener("click", function validateBillAndCashAmount() {
-  hideMessage();
-  if (billAmount.value > 0) {
-   
-    if (cashGiven.value >= billAmount.value) {
-     
-      const amountToBeReturned = cashGiven.value - billAmount.value; // 2022 - 12 = 2010
-      calculateChange(amountToBeReturned);
+function validateBillAmountAndCashGiven() {
+    errorMessage.style.display = "none";
+
+    if (Number(billAmount.value) <= 0) {
+        showErrorMessage("Invalid Bill Amount");
+    } else if (Number(cashGiven.value) < Number(billAmount.value)) {
+
+        cashGivenLabel.style.display = "block";
+        cashGiven.style.display = "block";
+        notesTable.style.display = "table";
+
+        showErrorMessage("Cash given should be greater than the bill amount.");
+    } else if(Number(cashGiven.value) === Number(billAmount.value)) {
+        showErrorMessage("Bill has been paid.")
     } else {
-      showMessage("Give me more money");
+        const amountToBeReturned = Number(cashGiven.value) - Number(billAmount.value);
+
+        calculateChange(amountToBeReturned);
     }
-  } else {
-    showMessage("Invalid Bill Amount");
-  }
-});
+
+}
+
+function showErrorMessage(errorMsg) {
+    errorMessage.style.display = "block";
+    errorMessage.innerText = errorMsg
+
+    for (let i = 0; i < notes.length; i++) {
+        displayNoOfNotes[i].innerText = "";
+    }
+}
 
 function calculateChange(amountToBeReturned) {
- 
-  for (let i = 0; i < availableNotes.length; i++) {
-    
-    const numberOfNotes = Math.trunc(amountToBeReturned / availableNotes[i]);
-  
+    for (let i = 0; i < notes.length; i++) {
+        const numberOfNotes = Math.trunc(amountToBeReturned / notes[i]);
+        amountToBeReturned = amountToBeReturned % notes[i];
 
-    
-    amountToBeReturned = amountToBeReturned % availableNotes[i];
-    
-
-    
-    noOfNotes[i].innerText = numberOfNotes;
-  }
+        displayNoOfNotes[i].innerText = numberOfNotes;
+    }
 }
 
-function hideMessage() {
-  message.style.display = "none";
-}
-
-function showMessage(msg) {
-  message.style.display = "block";
-  message.innerText = msg;
-}
+checkBtn.addEventListener("click", validateBillAmountAndCashGiven);

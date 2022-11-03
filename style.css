@@ -1,119 +1,121 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 :root {
-  --primary-color: #be185d;
+    --primary-color: #be185d;
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
-  min-width: 100vw;
+    font-family: 'Varela Round', sans-serif;
+    margin: 1rem;
+    background-color:lightgreen;
 }
 
-/* Container */
-.container {
-  margin: 4rem auto 7rem;
-  text-align: center;
+.container-div {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 65vh;
 }
 
 .heading {
-  color: var(--primary-color);
+    color: var(--primary-color);
+    margin-top: 3rem;
+    margin-block-end: 0.5em;
 }
 
 .description {
-  font-size: larger;
-  margin: 1rem;
+    text-align: center;
+    font-size: larger;
+    margin-block-start: 0.5em;
 }
 
-.input-label {
-  display: block;
-  font-size: large;
-  font-weight: 600;
+#bill-amount {
+    font-size: 14px;
+    margin: 1rem;
+    padding: 0.6rem 1rem;
+    width: 30vh;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+    outline: #fff;
 }
 
-.input {
-  font-size: 14px;
-  outline: #fff;
-  padding: 0.6rem 1rem;
-  margin: 1rem;
-  border: 2px solid var(--primary-color);
-  border-radius: 0.5rem;
-  width: 100%;
-  max-width: 258px;
+#cash-given {
+    font-size: 14px;
+    margin: 1rem;
+    padding: 0.6rem 1rem;
+    width: 30vh;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+    outline: #fff;
 }
 
-#check-button {
-  background: var(--primary-color);
-  border: none;
-  color: #fff;
-  padding: 0.7rem 1rem;
-  border-radius: 0.5rem;
-  font-size: large;
-  cursor: pointer;
-  outline: #fff;
-  margin: auto;
-  display: block;
+.label {
+    font-size: large;
+    font-weight: bold;
 }
 
-#error-message {
-  display: block;
-  font-size: larger;
-  margin: 1rem 0 0;
+#check-btn {
+    font-family: 'Varela Round', sans-serif;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: larger;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 0.5rem;
 }
 
-/* Table */
-.change-table {
-  width: 50%;
-  text-align: justify;
-  border-collapse: collapse;
-  margin: auto;
+.notes-table {
+    width: 50%;
+    text-align: justify;
+    border-collapse: collapse;
+    margin: auto;
 }
 
-.change-table caption {
-  margin: 1rem auto;
-  font-size: x-large;
-  font-weight: 500;
+.notes-table caption {
+    margin: 1rem auto;
+    font-size: x-large;
+    font-weight: 500;
 }
 
-th,
-td {
-  border: 2px solid var(--primary-color);
-  width: 0%;
-  border-collapse: collapse;
-  padding: 0.4rem;
+th, td {
+    border: 2px solid var(--primary-color);
+    width: 0%;
+    padding: 0.4rem;
 }
 
-/* footer */
-
-footer {
-  text-align: center;
+.footer {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
-footer p {
-  font-size: large;
-  text-align: center;
+.footer p {
+    font-weight: 100;
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
 }
 
-.footer-list {
-  margin: 1rem;
+.footer-header {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.2rem;
 }
 
-a,
-img,
-li {
-  display: inline;
+.list-item-inline {
+    display: inline;
+    padding: 0rem 0.5rem;
 }
 
-img {
-  width: 40px;
-  padding: 0.2rem;
+.footer .link {
+    color: var(--primary-color);
+}
+
+.footer .social-link {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.footer ul {
+    padding-inline-start: 0px;
 }
